@@ -1,0 +1,2072 @@
+[
+    {
+        "id": "e5a24e76d3cd5bb0",
+        "type": "tab",
+        "label": "SMART HOME",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "80d96cf7fac5b7d5",
+        "type": "telegram sender",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "bot": "5236163c53884b0e",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 630,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "033bb8bbc6ce0f2c",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "start",
+        "command": "/start",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 190,
+        "y": 680,
+        "wires": [
+            [
+                "81dca67a32b9c31e"
+            ],
+            [
+                "9b39823b3bc9a8c1"
+            ]
+        ]
+    },
+    {
+        "id": "81dca67a32b9c31e",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "Ubah Data",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Selamat datang, Ronal! 🔥\nSmart home siap melayani.\n\nGunakan perintah berikut:\n/terrace - menampilkan menu kontrol Teras\n/livingroom - menampilkan menu control Ruang Tamu\n/bedroom1 - menampilkan menu control Kamar 1\n/bedroom2 - menampilkan menu control Kamar 2\n/kitchen - menampilkan menu control Dapur",
+        "output": "str",
+        "x": 430,
+        "y": 660,
+        "wires": [
+            [
+                "80d96cf7fac5b7d5"
+            ]
+        ]
+    },
+    {
+        "id": "9b39823b3bc9a8c1",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Selamat datang! \nSmart home ini dikontrol oleh Ronal\nKalau butuh sesuatu, tanyakan langsung ke dia ya! 😉",
+        "output": "str",
+        "x": 440,
+        "y": 720,
+        "wires": [
+            [
+                "80d96cf7fac5b7d5"
+            ]
+        ]
+    },
+    {
+        "id": "307156e53c4fe0fa",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "teras",
+        "command": "/terrace",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 190,
+        "y": 820,
+        "wires": [
+            [
+                "a3c8be13add89b60"
+            ],
+            [
+                "e227117ecf2f603e"
+            ]
+        ]
+    },
+    {
+        "id": "96c8a55f0b75a12e",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "ruang tamu",
+        "command": "/livingroom",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 190,
+        "y": 920,
+        "wires": [
+            [
+                "d33dac43cbef4598"
+            ],
+            [
+                "010710b78fbf6013"
+            ]
+        ]
+    },
+    {
+        "id": "158992c2d6235f63",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "kamar1",
+        "command": "/bedroom1",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 190,
+        "y": 1040,
+        "wires": [
+            [
+                "f6730b291853ae7b"
+            ],
+            [
+                "7b0f1b31d481e5c2"
+            ]
+        ]
+    },
+    {
+        "id": "f5f7a06928f16cd3",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "kamar2",
+        "command": "/bedroom2",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 190,
+        "y": 1160,
+        "wires": [
+            [
+                "ef7f87c30c4db854"
+            ],
+            [
+                "558e2cd0aa361da0"
+            ]
+        ]
+    },
+    {
+        "id": "ba3c07939c418554",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "dapur",
+        "command": "/kitchen",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 190,
+        "y": 1280,
+        "wires": [
+            [
+                "5cca0364e79bee10"
+            ],
+            [
+                "b5ddcc0942a70bee"
+            ]
+        ]
+    },
+    {
+        "id": "f81f21b7a8506e8b",
+        "type": "telegram sender",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "bot": "5236163c53884b0e",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a3c8be13add89b60",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "Ubah Data",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Kontrol teras : \n/terasLampOn - menyalakan lampu teras\n/terasLampOff - mematikan lampu teras\n/terasStatus - menampilkan status teras\n",
+        "output": "str",
+        "x": 470,
+        "y": 780,
+        "wires": [
+            [
+                "f81f21b7a8506e8b"
+            ]
+        ]
+    },
+    {
+        "id": "e227117ecf2f603e",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Selamat datang! \nSmart home ini dikontrol oleh Ronal\nKalau butuh sesuatu, tanyakan langsung ke dia ya! 😉",
+        "output": "str",
+        "x": 480,
+        "y": 840,
+        "wires": [
+            [
+                "f81f21b7a8506e8b"
+            ]
+        ]
+    },
+    {
+        "id": "1645a6bb404f9813",
+        "type": "telegram sender",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "bot": "5236163c53884b0e",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d33dac43cbef4598",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "Ubah Data",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Kontrol ruang tamu  :\n/LivingLampOn - menyalakan lampu ruang tamu\n/LivingLampOff - mematikan lampu ruang tamu\n/LivingFanOn - menyalakan lampu ruang tamu\n/LivingFanOff - mematikan lampu ruang tamu\n/LivingStatus - menampilkan status ruang tamu",
+        "output": "str",
+        "x": 470,
+        "y": 880,
+        "wires": [
+            [
+                "1645a6bb404f9813"
+            ]
+        ]
+    },
+    {
+        "id": "010710b78fbf6013",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Selamat datang! \nSmart home ini dikontrol oleh Ronal\nKalau butuh sesuatu, tanyakan langsung ke dia ya! 😉",
+        "output": "str",
+        "x": 480,
+        "y": 940,
+        "wires": [
+            [
+                "1645a6bb404f9813"
+            ]
+        ]
+    },
+    {
+        "id": "9d7117999a93cec7",
+        "type": "telegram sender",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "bot": "5236163c53884b0e",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f6730b291853ae7b",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "Ubah Data",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Kontrol kamar1 :\n/Kamar1LampOn - menyalakan lampu kamar1\n/Kamar1LampOff - mematikan lampu kamar1\n/Kamar1Status - menampilkan status kamar1",
+        "output": "str",
+        "x": 470,
+        "y": 1000,
+        "wires": [
+            [
+                "9d7117999a93cec7"
+            ]
+        ]
+    },
+    {
+        "id": "7b0f1b31d481e5c2",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Selamat datang! \nSmart home ini dikontrol oleh Ronal\nKalau butuh sesuatu, tanyakan langsung ke dia ya! 😉",
+        "output": "str",
+        "x": 480,
+        "y": 1060,
+        "wires": [
+            [
+                "9d7117999a93cec7"
+            ]
+        ]
+    },
+    {
+        "id": "7489470c3750639a",
+        "type": "telegram sender",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "bot": "5236163c53884b0e",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 1140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ef7f87c30c4db854",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "Ubah Data",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Kontrol kamar2 :\n/Kamar2LampOn - menyalakan lampu kamar2\n/Kamar2LampOff - mematikan lampu kamar2\n/Kamar2Status - menampilkan status kamar2",
+        "output": "str",
+        "x": 470,
+        "y": 1120,
+        "wires": [
+            [
+                "7489470c3750639a"
+            ]
+        ]
+    },
+    {
+        "id": "558e2cd0aa361da0",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Selamat datang! \nSmart home ini dikontrol oleh Ronal\nKalau butuh sesuatu, tanyakan langsung ke dia ya! 😉",
+        "output": "str",
+        "x": 480,
+        "y": 1180,
+        "wires": [
+            [
+                "7489470c3750639a"
+            ]
+        ]
+    },
+    {
+        "id": "290edb2b26605a15",
+        "type": "telegram sender",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "bot": "5236163c53884b0e",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 1260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5cca0364e79bee10",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "Ubah Data",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Kontrol dapur :\n/DapurLampOn - menyalakan lampu dapur\n/DapurLampOff - mematikan lampu dapur\n/DapurStatus - menampilkan status dapur",
+        "output": "str",
+        "x": 470,
+        "y": 1240,
+        "wires": [
+            [
+                "290edb2b26605a15"
+            ]
+        ]
+    },
+    {
+        "id": "b5ddcc0942a70bee",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Selamat datang! \nSmart home ini dikontrol oleh Ronal\nKalau butuh sesuatu, tanyakan langsung ke dia ya! 😉",
+        "output": "str",
+        "x": 480,
+        "y": 1300,
+        "wires": [
+            [
+                "290edb2b26605a15"
+            ]
+        ]
+    },
+    {
+        "id": "97876228e06de7c7",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "/terasLampOn",
+        "command": "/terasLampOn",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 1010,
+        "y": 560,
+        "wires": [
+            [
+                "775e91cc9a3236cd",
+                "21641a1a24945d75"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "260bbf87c2717d94",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "/terasLampOff",
+        "command": "/terasLampOff",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 1010,
+        "y": 600,
+        "wires": [
+            [
+                "b382caf7460caafe",
+                "d8162200073258ea"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "76246139931da10b",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "/LivingLampOn",
+        "command": "/LivingLampOn",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 1020,
+        "y": 900,
+        "wires": [
+            [
+                "9d7a9247b5509589",
+                "ca3c62a98f5c9b6a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5baefd50d2e848e3",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "/LivingLampOff",
+        "command": "/LivingLampOff",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 1020,
+        "y": 940,
+        "wires": [
+            [
+                "bdcc74a390af3a78",
+                "d09784d9d5890f16"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "dcb1bea6992e1b54",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "/Kamar1LampOn",
+        "command": "/Kamar1LampOn",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 1020,
+        "y": 1300,
+        "wires": [
+            [
+                "76f1a3ef7f67507a",
+                "97dca469f7f73348"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5e247ce0df61c91b",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "/Kamar1LampOff",
+        "command": "/Kamar1LampOff",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 1020,
+        "y": 1340,
+        "wires": [
+            [
+                "bbe6b7fb87c07b9b",
+                "e17d19ba5750773d"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d3089f0414f68548",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "/Kamar2LampOn",
+        "command": "/Kamar2LampOn",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 2220,
+        "y": 1260,
+        "wires": [
+            [
+                "f13bff1676676540",
+                "8eaac0d8a4eadc4e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "0113256e32d9211d",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "/Kamar2LampOff",
+        "command": "/Kamar2LampOff",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 2220,
+        "y": 1300,
+        "wires": [
+            [
+                "e4f5b97c9a8b7649",
+                "328412a9357ee580"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ebace10d5d5487ca",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "/DapurLampOn",
+        "command": "/DapurLampOn",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 2200,
+        "y": 860,
+        "wires": [
+            [
+                "1cf7573f2f316a4c",
+                "09dc8062051bfe15"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8100303dd24ce6d0",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "/DapurLampOff",
+        "command": "/DapurLampOff",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 2200,
+        "y": 900,
+        "wires": [
+            [
+                "8327be0047c95834",
+                "b16a6e8aa0f33baa"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9d7a9247b5509589",
+        "type": "change",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "nyala",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1270,
+        "y": 860,
+        "wires": [
+            [
+                "6199d2034e37960f"
+            ]
+        ]
+    },
+    {
+        "id": "bdcc74a390af3a78",
+        "type": "change",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "mati",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1270,
+        "y": 960,
+        "wires": [
+            [
+                "6199d2034e37960f"
+            ]
+        ]
+    },
+    {
+        "id": "6199d2034e37960f",
+        "type": "mqtt out",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "topic": "livingroom/light/set",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1c1ef3c5063ca63d",
+        "x": 1490,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "d807234fe2cd7062",
+        "type": "mqtt out",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "topic": "bedroom1/light/set",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1c1ef3c5063ca63d",
+        "x": 1490,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "76f1a3ef7f67507a",
+        "type": "change",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "nyala",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1270,
+        "y": 1260,
+        "wires": [
+            [
+                "d807234fe2cd7062"
+            ]
+        ]
+    },
+    {
+        "id": "bbe6b7fb87c07b9b",
+        "type": "change",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "mati",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1270,
+        "y": 1360,
+        "wires": [
+            [
+                "d807234fe2cd7062"
+            ]
+        ]
+    },
+    {
+        "id": "f13bff1676676540",
+        "type": "change",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "nyala",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2470,
+        "y": 1220,
+        "wires": [
+            [
+                "be6b6460bddee757"
+            ]
+        ]
+    },
+    {
+        "id": "e4f5b97c9a8b7649",
+        "type": "change",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "mati",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2470,
+        "y": 1320,
+        "wires": [
+            [
+                "be6b6460bddee757"
+            ]
+        ]
+    },
+    {
+        "id": "be6b6460bddee757",
+        "type": "mqtt out",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "topic": "bedroom2/light/set",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1c1ef3c5063ca63d",
+        "x": 2670,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "9691744626133543",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "/LivingFanOn",
+        "command": "/LivingFanOn",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 2170,
+        "y": 520,
+        "wires": [
+            [
+                "f7c7b840f4751d01",
+                "28497ee91c9181e8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7bcb2a1dd5c76608",
+        "type": "telegram command",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "/LivingFanOff",
+        "command": "/LivingFanOff",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "5236163c53884b0e",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 2170,
+        "y": 560,
+        "wires": [
+            [
+                "823081521276836d",
+                "760fce836691ecbb"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f7c7b840f4751d01",
+        "type": "change",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "nyala",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2430,
+        "y": 480,
+        "wires": [
+            [
+                "fddb2440d8a7f37c"
+            ]
+        ]
+    },
+    {
+        "id": "823081521276836d",
+        "type": "change",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "mati",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2430,
+        "y": 580,
+        "wires": [
+            [
+                "fddb2440d8a7f37c"
+            ]
+        ]
+    },
+    {
+        "id": "fddb2440d8a7f37c",
+        "type": "mqtt out",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "topic": "livingroom/fan/set",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1c1ef3c5063ca63d",
+        "x": 2610,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "1cf7573f2f316a4c",
+        "type": "change",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "nyala",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2450,
+        "y": 820,
+        "wires": [
+            [
+                "41221ad03ab36bcc"
+            ]
+        ]
+    },
+    {
+        "id": "8327be0047c95834",
+        "type": "change",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "mati",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2450,
+        "y": 920,
+        "wires": [
+            [
+                "41221ad03ab36bcc"
+            ]
+        ]
+    },
+    {
+        "id": "41221ad03ab36bcc",
+        "type": "mqtt out",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "topic": "kitchen/light/set",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1c1ef3c5063ca63d",
+        "x": 2640,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "775e91cc9a3236cd",
+        "type": "change",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "nyala",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1270,
+        "y": 520,
+        "wires": [
+            [
+                "4df825ffca11a84e"
+            ]
+        ]
+    },
+    {
+        "id": "b382caf7460caafe",
+        "type": "change",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "mati",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1270,
+        "y": 640,
+        "wires": [
+            [
+                "4df825ffca11a84e"
+            ]
+        ]
+    },
+    {
+        "id": "4df825ffca11a84e",
+        "type": "mqtt out",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "topic": "terrace/light/set",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1c1ef3c5063ca63d",
+        "x": 1500,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "21641a1a24945d75",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "on",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Lampu Sudah di nyalakan",
+        "output": "str",
+        "x": 1270,
+        "y": 440,
+        "wires": [
+            [
+                "e731865daabbc898"
+            ]
+        ]
+    },
+    {
+        "id": "191c0e69ebfae668",
+        "type": "telegram sender",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "bot": "5236163c53884b0e",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1850,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d8162200073258ea",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "off",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Lampu Sudah di matikan",
+        "output": "str",
+        "x": 1270,
+        "y": 720,
+        "wires": [
+            [
+                "e731865daabbc898"
+            ]
+        ]
+    },
+    {
+        "id": "e731865daabbc898",
+        "type": "telegram sender",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "bot": "5236163c53884b0e",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1850,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ca3c62a98f5c9b6a",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "on",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Lampu Sudah di nyalakan",
+        "output": "str",
+        "x": 1270,
+        "y": 780,
+        "wires": [
+            [
+                "191c0e69ebfae668"
+            ]
+        ]
+    },
+    {
+        "id": "d09784d9d5890f16",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "off",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Lampu Sudah di matikan",
+        "output": "str",
+        "x": 1270,
+        "y": 1040,
+        "wires": [
+            [
+                "191c0e69ebfae668"
+            ]
+        ]
+    },
+    {
+        "id": "28497ee91c9181e8",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "on",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Fan Sudah di nyalakan",
+        "output": "str",
+        "x": 2430,
+        "y": 420,
+        "wires": [
+            [
+                "8fc077b48294ebee"
+            ]
+        ]
+    },
+    {
+        "id": "760fce836691ecbb",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "on",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Fan Sudah di nyalakan",
+        "output": "str",
+        "x": 2430,
+        "y": 640,
+        "wires": [
+            [
+                "8fc077b48294ebee"
+            ]
+        ]
+    },
+    {
+        "id": "8fc077b48294ebee",
+        "type": "telegram sender",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "bot": "5236163c53884b0e",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 2910,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "09dc8062051bfe15",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "on",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Lampu Sudah di nyalakan",
+        "output": "str",
+        "x": 2450,
+        "y": 740,
+        "wires": [
+            [
+                "efdc989e7bce9b57"
+            ]
+        ]
+    },
+    {
+        "id": "b16a6e8aa0f33baa",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "on",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Lampu Sudah di nyalakan",
+        "output": "str",
+        "x": 2450,
+        "y": 1000,
+        "wires": [
+            [
+                "efdc989e7bce9b57"
+            ]
+        ]
+    },
+    {
+        "id": "efdc989e7bce9b57",
+        "type": "telegram sender",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "bot": "5236163c53884b0e",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 2930,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "97dca469f7f73348",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "on",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Lampu Sudah di nyalakan",
+        "output": "str",
+        "x": 1270,
+        "y": 1180,
+        "wires": [
+            [
+                "0c9298b309dd3707"
+            ]
+        ]
+    },
+    {
+        "id": "e17d19ba5750773d",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "on",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Lampu Sudah di nyalakan",
+        "output": "str",
+        "x": 1270,
+        "y": 1440,
+        "wires": [
+            [
+                "0c9298b309dd3707"
+            ]
+        ]
+    },
+    {
+        "id": "0c9298b309dd3707",
+        "type": "telegram sender",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "bot": "5236163c53884b0e",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1830,
+        "y": 1300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8eaac0d8a4eadc4e",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "on",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Lampu Sudah di nyalakan",
+        "output": "str",
+        "x": 2470,
+        "y": 1140,
+        "wires": [
+            [
+                "6c4616cbad520cba"
+            ]
+        ]
+    },
+    {
+        "id": "328412a9357ee580",
+        "type": "template",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "on",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "Lampu Sudah di nyalakan",
+        "output": "str",
+        "x": 2470,
+        "y": 1400,
+        "wires": [
+            [
+                "6c4616cbad520cba"
+            ]
+        ]
+    },
+    {
+        "id": "6c4616cbad520cba",
+        "type": "telegram sender",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "bot": "5236163c53884b0e",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 2930,
+        "y": 1260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d02c0248175e866c",
+        "type": "function",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "ubah data",
+        "func": "if (msg.payload === true) {\n    msg.payload = 1; // Ubah true menjadi 1\n} else if (msg.payload === false) {\n    msg.payload = 0; // Ubah false menjadi 0\n} else {\n    msg.payload = null; // Jika data tidak sesuai, beri nilai null\n}\n\n// Membuat pesan duplikat\nlet msgDuplicate = { ...msg }; // Salin isi dari msg asli\n\n// Kembalikan kedua pesan dalam array\nreturn [msg, msgDuplicate];\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 80,
+        "wires": [
+            [
+                "d1270623238a0a7f",
+                "da1fe30e61f7200f"
+            ]
+        ]
+    },
+    {
+        "id": "c8691219688301c1",
+        "type": "noraf-light",
+        "z": "e5a24e76d3cd5bb0",
+        "devicename": "RUANG TAMU",
+        "lightcolor": false,
+        "brightnesscontrol": false,
+        "commandonlycolor": false,
+        "turnonwhenbrightnesschanges": false,
+        "passthru": false,
+        "errorifstateunchaged": false,
+        "statepayload": true,
+        "brightnessoverride": "",
+        "roomhint": "",
+        "name": "",
+        "colortype": "hsv",
+        "nora": "4df69844478c7146",
+        "topic": " livingroom/light/set",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "temperaturemin": "2700",
+        "temperaturemax": "5500",
+        "twofactor": "off",
+        "twofactorpin": "",
+        "filter": false,
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "de39f759cd11d425"
+            ]
+        ]
+    },
+    {
+        "id": "de39f759cd11d425",
+        "type": "function",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "ubah data",
+        "func": "if (msg.payload === true) {\n    msg.payload = 1; // Ubah true menjadi 1\n} else if (msg.payload === false) {\n    msg.payload = 0; // Ubah false menjadi 0\n} else {\n    msg.payload = null; // Jika data tidak sesuai, beri nilai null\n}\n\n// Membuat pesan duplikat\nlet msgDuplicate = { ...msg }; // Salin isi dari msg asli\n\n// Kembalikan kedua pesan dalam array\nreturn [msg, msgDuplicate];\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 180,
+        "wires": [
+            [
+                "263bcfcf9205cfdb",
+                "da1fe30e61f7200f"
+            ]
+        ]
+    },
+    {
+        "id": "9654444a93efdc95",
+        "type": "noraf-light",
+        "z": "e5a24e76d3cd5bb0",
+        "devicename": "KAMAR 1",
+        "lightcolor": false,
+        "brightnesscontrol": false,
+        "commandonlycolor": false,
+        "turnonwhenbrightnesschanges": false,
+        "passthru": false,
+        "errorifstateunchaged": false,
+        "statepayload": true,
+        "brightnessoverride": "",
+        "roomhint": "",
+        "name": "",
+        "colortype": "hsv",
+        "nora": "4df69844478c7146",
+        "topic": "bedroom1/light/set",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "temperaturemin": "2700",
+        "temperaturemax": "5500",
+        "twofactor": "off",
+        "twofactorpin": "",
+        "filter": false,
+        "x": 180,
+        "y": 260,
+        "wires": [
+            [
+                "035a5b49af9ce810"
+            ]
+        ]
+    },
+    {
+        "id": "035a5b49af9ce810",
+        "type": "function",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "ubah data",
+        "func": "if (msg.payload === true) {\n    msg.payload = 1; // Ubah true menjadi 1\n} else if (msg.payload === false) {\n    msg.payload = 0; // Ubah false menjadi 0\n} else {\n    msg.payload = null; // Jika data tidak sesuai, beri nilai null\n}\n\n// Membuat pesan duplikat\nlet msgDuplicate = { ...msg }; // Salin isi dari msg asli\n\n// Kembalikan kedua pesan dalam array\nreturn [msg, msgDuplicate];\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 260,
+        "wires": [
+            [
+                "899d4b965a3383c1",
+                "da1fe30e61f7200f"
+            ]
+        ]
+    },
+    {
+        "id": "d508bf227e6e5271",
+        "type": "noraf-light",
+        "z": "e5a24e76d3cd5bb0",
+        "devicename": "KAMAR 2",
+        "lightcolor": false,
+        "brightnesscontrol": false,
+        "commandonlycolor": false,
+        "turnonwhenbrightnesschanges": false,
+        "passthru": false,
+        "errorifstateunchaged": false,
+        "statepayload": true,
+        "brightnessoverride": "",
+        "roomhint": "",
+        "name": "",
+        "colortype": "hsv",
+        "nora": "4df69844478c7146",
+        "topic": "bedroom2/light/set",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "temperaturemin": "2700",
+        "temperaturemax": "5500",
+        "twofactor": "off",
+        "twofactorpin": "",
+        "filter": false,
+        "x": 180,
+        "y": 360,
+        "wires": [
+            [
+                "9c13a91ed9d8fa16"
+            ]
+        ]
+    },
+    {
+        "id": "9c13a91ed9d8fa16",
+        "type": "function",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "ubah data",
+        "func": "if (msg.payload === true) {\n    msg.payload = 1; // Ubah true menjadi 1\n} else if (msg.payload === false) {\n    msg.payload = 0; // Ubah false menjadi 0\n} else {\n    msg.payload = null; // Jika data tidak sesuai, beri nilai null\n}\n\n// Membuat pesan duplikat\nlet msgDuplicate = { ...msg }; // Salin isi dari msg asli\n\n// Kembalikan kedua pesan dalam array\nreturn [msg, msgDuplicate];\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 360,
+        "wires": [
+            [
+                "769f6a3b0a485453",
+                "da1fe30e61f7200f"
+            ]
+        ]
+    },
+    {
+        "id": "27ed049c7b80a662",
+        "type": "noraf-light",
+        "z": "e5a24e76d3cd5bb0",
+        "devicename": "DAPUR",
+        "lightcolor": false,
+        "brightnesscontrol": false,
+        "commandonlycolor": false,
+        "turnonwhenbrightnesschanges": false,
+        "passthru": false,
+        "errorifstateunchaged": false,
+        "statepayload": true,
+        "brightnessoverride": "",
+        "roomhint": "",
+        "name": "",
+        "colortype": "hsv",
+        "nora": "4df69844478c7146",
+        "topic": "kitchen/light/set",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "temperaturemin": "2700",
+        "temperaturemax": "5500",
+        "twofactor": "off",
+        "twofactorpin": "",
+        "filter": false,
+        "x": 180,
+        "y": 440,
+        "wires": [
+            [
+                "b48515759a45161b"
+            ]
+        ]
+    },
+    {
+        "id": "b48515759a45161b",
+        "type": "function",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "ubah data",
+        "func": "if (msg.payload === true) {\n    msg.payload = 1; // Ubah true menjadi 1\n} else if (msg.payload === false) {\n    msg.payload = 0; // Ubah false menjadi 0\n} else {\n    msg.payload = null; // Jika data tidak sesuai, beri nilai null\n}\n\n// Membuat pesan duplikat\nlet msgDuplicate = { ...msg }; // Salin isi dari msg asli\n\n// Kembalikan kedua pesan dalam array\nreturn [msg, msgDuplicate];\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 440,
+        "wires": [
+            [
+                "1910c8d4c85b772f",
+                "da1fe30e61f7200f"
+            ]
+        ]
+    },
+    {
+        "id": "d1270623238a0a7f",
+        "type": "mqtt out",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "topic": "terrace/pir/enable",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1c1ef3c5063ca63d",
+        "x": 650,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "263bcfcf9205cfdb",
+        "type": "mqtt out",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "topic": "livingroom/light/set",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1c1ef3c5063ca63d",
+        "x": 650,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "899d4b965a3383c1",
+        "type": "mqtt out",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "topic": "bedroom1/light/set",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1c1ef3c5063ca63d",
+        "x": 650,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1910c8d4c85b772f",
+        "type": "mqtt out",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "topic": "kitchen/light/set",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1c1ef3c5063ca63d",
+        "x": 640,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "769f6a3b0a485453",
+        "type": "mqtt out",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "topic": "bedroom2/light/set",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1c1ef3c5063ca63d",
+        "x": 650,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "da1fe30e61f7200f",
+        "type": "debug",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "b26a34260e63c4f7",
+        "type": "mqtt in",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "terrace/light/set",
+        "topic": "terrace/light/status",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "1c1ef3c5063ca63d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 1460,
+        "wires": [
+            [
+                "c332ac7163d9c93c"
+            ]
+        ]
+    },
+    {
+        "id": "c332ac7163d9c93c",
+        "type": "function",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "Status Lampu",
+        "func": "flow.set(\"status_lampu\", msg.payload);\nflow.set(\"waktu_update\", new Date().toLocaleString());\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 1460,
+        "wires": [
+            [
+                "51260d9e306c0204"
+            ]
+        ]
+    },
+    {
+        "id": "51260d9e306c0204",
+        "type": "function",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "function 3",
+        "func": "let lampu = flow.get(\"status_lampu\") || \"Tidak Diketahui\";\nlet kelembapan = flow.get(\"kelembapan\") || \"-\";\nlet humidity = flow.get(\"humidity\") || \"-\";\nlet waktu = flow.get(\"waktu_update\") || \"-\";\n\nmsg.payload = {\n    chatId: msg.payload.chatId,\n    type: 'message',\n    content:\n        `📡 *Status Ruangan Saat Ini:*\n\n💡 Lampu: *${lampu}*\n💧 Kelembapan: *${kelembapan} %*\n🌡️ Suhu: *${humidity} °C*\n\n🔄 Terakhir diperbarui: ${waktu}`\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1580,
+        "wires": [
+            [
+                "3ca04761894294e8"
+            ]
+        ]
+    },
+    {
+        "id": "3ca04761894294e8",
+        "type": "telegram sender",
+        "z": "e5a24e76d3cd5bb0",
+        "name": "",
+        "bot": "5236163c53884b0e",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 870,
+        "y": 1580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "800f136d4475d362",
+        "type": "noraf-light",
+        "z": "e5a24e76d3cd5bb0",
+        "devicename": "ALARM RUMAH",
+        "lightcolor": false,
+        "brightnesscontrol": false,
+        "commandonlycolor": false,
+        "turnonwhenbrightnesschanges": false,
+        "passthru": false,
+        "errorifstateunchaged": false,
+        "statepayload": true,
+        "brightnessoverride": "",
+        "roomhint": "",
+        "name": "",
+        "colortype": "hsv",
+        "nora": "4df69844478c7146",
+        "topic": "terrace/pir/enable",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "temperaturemin": "2700",
+        "temperaturemax": "5500",
+        "twofactor": "off",
+        "twofactorpin": "",
+        "filter": false,
+        "x": 200,
+        "y": 80,
+        "wires": [
+            [
+                "d02c0248175e866c"
+            ]
+        ]
+    },
+    {
+        "id": "5236163c53884b0e",
+        "type": "telegram bot",
+        "botname": "Ronaltama_Bot",
+        "usernames": "ronaltama",
+        "chatids": "1195828132",
+        "baseapiurl": "https://api.telegram.org",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "1c1ef3c5063ca63d",
+        "type": "mqtt-broker",
+        "name": "mqtt_wemos",
+        "broker": "broker.mqtt-dashboard.com",
+        "port": "1883",
+        "clientid": "4f8fba13-6f56-42f6-bbd9-7da6417f2af3",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "4df69844478c7146",
+        "type": "noraf-config",
+        "name": "nora config",
+        "group": "",
+        "twofactor": "off",
+        "twofactorpin": "",
+        "localexecution": true,
+        "structure": "Home Control",
+        "storeStateInContext": false,
+        "disableValidationErrors": false,
+        "sendDeviceNameAndLocation": false
+    }
+]
