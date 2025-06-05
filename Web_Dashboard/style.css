@@ -1,0 +1,272 @@
+/* style.css */
+body {
+  background: linear-gradient(to bottom right, #f2f2f2, #e6e6e6);
+  font-family: 'Segoe UI', sans-serif;
+  transition: margin-left .3s; /* Animasi untuk push content */
+  margin: 0; /* Pastikan tidak ada margin default */
+  padding-bottom: 20px; /* Beri sedikit ruang di bawah jika ada konten panjang */
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px;
+  transition: margin-left .3s; /* Animasi untuk push content */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0 10px;
+  /* background-color: #fff; /* Opsional: beri background pada header jika diinginkan */
+  /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Opsional: beri shadow pada header */
+  /* position: sticky; /* Opsional: buat header tetap di atas saat scroll */
+  /* top: 0; */
+  /* z-index: 1000; */
+}
+
+.header h4 {
+  font-weight: bold;
+  margin: 0;
+  margin-left: 10px; /* Jarak antara tombol/ikon dan judul */
+}
+
+.header .welcome-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+.profile-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Sembunyikan navigasi tab lama */
+.tabs {
+  display: none !important;
+}
+
+/* --- CSS untuk Sidebar --- */
+.sidebar {
+  height: 100%;
+  width: 0; /* Lebar awal 0, sidebar tersembunyi */
+  position: fixed;
+  z-index: 1002; /* Di atas elemen lain, termasuk header jika sticky */
+  top: 0;
+  left: 0;
+  background-color: #2c3e50; /* Warna latar sidebar */
+  overflow-x: hidden; /* Nonaktifkan scroll horizontal */
+  transition: 0.3s; /* Efek transisi saat buka/tutup */
+  padding-top: 60px; /* Jarak dari atas, sesuaikan dengan tinggi header jika header sticky */
+  box-shadow: 3px 0 6px rgba(0,0,0,0.2);
+}
+
+.sidebar a {
+  padding: 12px 15px 12px 20px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #ecf0f1; /* Warna teks link */
+  display: block;
+  transition: 0.2s ease-in-out;
+}
+
+.sidebar a:hover, .sidebar a.active-sidebar {
+  color: #ffffff;
+  background-color: #b02a37; /* Warna link aktif/hover */
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 15px; /* Sesuaikan posisi tombol close */
+  right: 20px;
+  font-size: 2rem; /* Ukuran ikon close */
+  color: #ecf0f1;
+  padding: 0; /* Hapus padding agar lebih presisi */
+  line-height: 1; /* Untuk alignment vertikal ikon */
+}
+
+.sidebar .closebtn:hover {
+   color: #ffffff;
+   background-color: transparent !important; /* Pastikan tidak ada bg saat hover tombol close */
+}
+
+.sidebar hr {
+  border-color: #34495e;
+  margin: 15px 15px;
+}
+
+.sidebar-header {
+    padding: 15px 20px;
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 600; /* Lebih tebal */
+    margin-bottom: 10px;
+    text-align: left; /* Rata kiri */
+    border-bottom: 1px solid #34495e; /* Garis bawah pemisah */
+}
+
+#logoutBtnSidebar {
+    /* Styling khusus jika perlu, misal warna berbeda */
+}
+#logoutBtnSidebar i {
+    margin-right: 10px; /* Jarak ikon logout dan teks */
+}
+
+/* --- Tombol Navigasi di Header --- */
+.nav-button {
+  font-size: 1.8rem; /* Ukuran ikon tombol navigasi */
+  cursor: pointer;
+  background-color: transparent;
+  color: #333; /* Warna ikon */
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px; /* Jarak antar tombol jika ada >1 */
+  line-height: 1;
+}
+.nav-button:hover {
+    color: #b02a37; /* Warna hover */
+}
+
+.header > div:first-child { /* Kontainer untuk tombol menu dan back */
+    display: flex;
+    align-items: center;
+}
+
+
+/* Styling Umum Device Card (jika ada yang ingin diubah dari file asli) */
+.device-grid {
+  display: grid;
+  gap: 20px; /* Gap seragam */
+  margin-top: 20px;
+}
+
+/* Atur kolom berdasarkan halaman jika perlu, contoh: */
+/* .dashboard-page .device-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } */
+.living-room-page .device-grid,
+.kitchen-page .device-grid,
+.bedroom-page .device-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsif 2 kolom */
+}
+@media (max-width: 600px) {
+  .living-room-page .device-grid,
+  .kitchen-page .device-grid,
+  .bedroom-page .device-grid {
+    grid-template-columns: 1fr; /* 1 kolom di layar kecil */
+  }
+}
+.terrace-page .device-grid {
+  grid-template-columns: 1fr; /* Terrace tetap 1 kolom */
+}
+
+
+.device-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.device-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.device-card i.main-icon { /* Class baru untuk ikon utama device */
+  font-size: 2.2rem; /* Sedikit lebih besar */
+  margin-bottom: 15px;
+  color: #b02a37;
+}
+
+.device-card h6 {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.form-check-input.custom-switch { /* Class baru untuk switch */
+  width: 45px;  /* Sedikit lebih besar */
+  height: 22px; /* Sedikit lebih besar */
+  cursor: pointer;
+}
+
+.form-switch .form-check-input.custom-switch:checked {
+  background-color: #b02a37;
+  border-color: #b02a37;
+}
+
+.temperature-display {
+  font-size: 1.5rem; /* Lebih besar */
+  font-weight: bold;
+  color: #b02a37;
+  margin-top: 5px;
+}
+
+.smoke-status {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: green;
+  margin-top: 5px;
+}
+
+.smoke-alert {
+  color: red;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.cctv-frame {
+  width: 100%;
+  height: 300px; /* Bisa disesuaikan */
+  border: none;
+  border-radius: 10px;
+  background-color: #000; /* Latar belakang jika stream tidak ada */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dashboard Specific */
+.room-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.room-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.room-card img {
+    width: 100%;
+    height: 220px; /* Sesuaikan tinggi gambar kartu ruangan */
+    object-fit: cover;
+    filter: brightness(65%); /* Sedikit lebih gelap agar teks lebih jelas */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.room-card:hover img {
+    transform: scale(1.05);
+    filter: brightness(75%);
+}
+
+.room-card .room-name {
+  position: absolute;
+  bottom: 15px; /* Posisi nama ruangan */
+  left: 20px;
+  color: white;
+  font-size: 1.6rem; /* Ukuran font nama ruangan */
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Shadow pada teks */
+}

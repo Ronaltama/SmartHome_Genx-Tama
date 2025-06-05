@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Living Room</title>
+    <script src="auth.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        background: linear-gradient(to bottom right, #f2f2f2, #e6e6e6);
+        font-family: "Segoe UI", sans-serif;
+        margin-bottom: 80px;
+        /* Pastikan body memiliki tinggi yang fleksibel */
+        min-height: 100vh; /* Tambahkan ini agar body minimal setinggi viewport */
+        display: flex; /* Gunakan flexbox untuk tata letak utama */
+        flex-direction: column; /* Konten diatur secara kolom */
+        transition: margin-left 0.3s;
+      }
+
+      .wrapper {
+        max-width: 1000px;
+        width: 100%; /* Pastikan ini ada */
+        margin: 0 auto;
+        padding: 0 15px;
+        flex-grow: 1; /* Penting: Biarkan wrapper tumbuh mengisi ruang yang tersedia */
+        display: flex;
+        flex-direction: column; /* Biarkan konten di dalam wrapper diatur kolom */
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0 10px;
+      }
+
+      .header h4 {
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .header .nav-controls {
+        display: flex;
+        align-items: center;
+      }
+
+      .profile-img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .tabs {
+        display: none !important;
+      }
+
+      .device-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-bottom: 20px; /* Tambahkan sedikit jarak dari chart */
+      }
+
+      .device-card {
+        background: white;
+        border-radius: 15px;
+        padding: 15px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: 0.2s;
+      }
+
+      .device-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .device-card i {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: #b02a37;
+      }
+
+      .device-card h6 {
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .form-check-input {
+        width: 40px;
+        height: 20px;
+      }
+
+      .form-switch .form-check-input:checked {
+        background-color: #b02a37;
+        border-color: #b02a37;
+      }
+
+      /* CSS untuk Kontainer Chart */
+      #livingRoomDhtChartContainer {
+        height: 350px; /* Atur tinggi tetap untuk kontainer chart */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* Penting: Sembunyikan konten yang melampaui batas */
+      }
+
+      #livingRoomDhtChart {
+        width: 100% !important; /* Pastikan canvas mengambil lebar penuh kontainernya */
+        height: 100% !important; /* Penting: Biarkan canvas mengambil tinggi penuh kontainernya */
+      }
+
+      .bottom-nav {
+        display: none;
+      }
+
+      /* --- CSS UNTUK SIDEBAR --- */
+      .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1001;
+        top: 0;
+        left: 0;
+        background-color: #2c3e50;
+        overflow-x: hidden;
+        transition: 0.3s;
+        padding-top: 60px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .sidebar a {
+        padding: 10px 15px 10px 20px;
+        text-decoration: none;
+        font-size: 1.1rem;
+        color: #ecf0f1;
+        display: block;
+        transition: 0.2s;
+      }
+
+      .sidebar a:hover,
+      .sidebar a.active-sidebar {
+        color: #ffffff;
+        background-color: #b02a37;
+      }
+
+      .sidebar .closebtn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 2rem;
+        color: #ecf0f1;
+        padding: 0;
+        line-height: 1;
+      }
+      .sidebar .closebtn:hover {
+        color: #ffffff;
+        background-color: transparent !important;
+      }
+
+      .sidebar .sidebar-header-text {
+        padding: 15px 20px;
+        font-size: 1.4rem;
+        color: white;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-align: left;
+        border-bottom: 1px solid #34495e;
+      }
+      .sidebar hr {
+        border-color: #34495e;
+        margin: 15px 15px;
+      }
+      #logoutBtnSidebar i {
+        margin-right: 10px;
+      }
+
+      .open-nav-btn {
+        font-size: 1.8rem;
+        cursor: pointer;
+        background-color: transparent;
+        color: #333;
+        border: none;
+        padding: 5px 10px;
+        margin-right: 15px;
+      }
+      .open-nav-btn:hover {
+        color: #b02a37;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mySidebar" class="sidebar">
+      <div class="sidebar-header-text">Menu Navigasi</div>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        ><i class="bi bi-x-lg"></i
+      ></a>
+      <a href="dashboard.html"
+        ><i class="bi bi-house-door-fill me-2"></i>Dashboard</a
+      >
+      <a href="living-room.html" class="active-sidebar"
+        ><i class="bi bi-display-fill me-2"></i>Living Room</a
+      >
+      <a href="kitchen.html"><i class="bi bi-fire me-2"></i>Kitchen</a>
+      <a href="bedroom.html"><i class="bi bi-lamp-fill me-2"></i>Bedroom</a>
+      <a href="terrace.html"
+        ><i class="bi bi-bounding-box-circles me-2"></i>Terrace</a
+      >
+      <hr />
+      <a href="#" id="logoutBtnSidebar"
+        ><i class="bi bi-box-arrow-right"></i>Logout</a
+      >
+    </div>
+
+    <div class="wrapper" id="mainWrapper">
+      <div class="header">
+        <div class="nav-controls">
+          <button class="open-nav-btn" onclick="openNav()">
+            <i class="bi bi-list"></i>
+          </button>
+          <h4>Living Rooms</h4>
+        </div>
+        <img src="assets/logo.png" alt="profile" class="profile-img" />
+      </div>
+
+      <div class="device-grid">
+        <div class="device-card">
+          <i class="bi bi-lightbulb"></i>
+          <h6>Light Bulb</h6>
+          <div class="form-check form-switch d-flex justify-content-center">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              data-topic="livingroom/light/set"
+              data-topic-status="livingroom/light/status"
+            />
+          </div>
+        </div>
+
+        <div class="device-card">
+          <i class="bi bi-fan"></i>
+          <h6>Fan</h6>
+          <div class="form-check form-switch d-flex justify-content-center">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              data-topic="livingroom/fan/set"
+              data-topic-status="livingroom/fan/status"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="device-card mt-1" id="livingRoomDhtChartContainer">
+        <h5 class="text-center mb-3">
+          Living Room Temperature & Humidity History
+        </h5>
+        <canvas id="livingRoomDhtChart" height="350"></canvas>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="main.js"></script>
+    <script src="sidebar.js"></script>
+
+    <script>
+      // JAVASCRIPT UNTUK SIDEBAR
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "260px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+      }
+    </script>
+  </body>
+</html>

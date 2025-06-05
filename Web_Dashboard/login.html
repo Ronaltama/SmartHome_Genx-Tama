@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - SmartHome</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* Background Pattern */
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(
+            circle at 25% 25%,
+            rgba(0, 0, 0, 0.02) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 75% 75%,
+            rgba(0, 0, 0, 0.02) 0%,
+            transparent 50%
+          );
+        animation: float 20s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .login-container {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        position: relative;
+        z-index: 1;
+        animation: slideUp 0.8s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .logo-section {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .logo-icon {
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        width: 60px;
+        height: 60px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .logo-icon i {
+        font-size: 24px;
+        color: white;
+      }
+
+      h2 {
+        color: #333;
+        font-size: 28px;
+        font-weight: 300;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+
+      .input-group {
+        position: relative;
+        margin-bottom: 25px;
+      }
+
+      .input-group i {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666;
+        font-size: 16px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 15px 15px 15px 45px;
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        color: #333;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 1);
+        border-color: #667eea;
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.1);
+      }
+
+      input::placeholder {
+        color: #999;
+      }
+
+      .login-btn {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .login-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+      }
+
+      .login-btn:active {
+        transform: translateY(0);
+      }
+
+      .login-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .login-btn:hover::before {
+        left: 100%;
+      }
+
+      .error {
+        background: rgba(220, 53, 69, 0.1);
+        color: #dc3545;
+        padding: 12px;
+        border-radius: 8px;
+        text-align: center;
+        margin-bottom: 20px;
+        border: 1px solid rgba(220, 53, 69, 0.2);
+        font-size: 14px;
+        display: none;
+        animation: shake 0.5s ease-in-out;
+      }
+
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        75% {
+          transform: translateX(5px);
+        }
+      }
+
+      .error.show {
+        display: block;
+      }
+
+      .footer-text {
+        text-align: center;
+        color: #888;
+        font-size: 12px;
+        margin-top: 30px;
+      }
+
+      /* Loading animation */
+      .loading {
+        display: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s ease-in-out infinite;
+        margin: 0 auto;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 480px) {
+        .login-container {
+          width: 90%;
+          padding: 30px 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="logo-section">
+        <div class="logo-icon">
+          <i class="fas fa-home"></i>
+        </div>
+        <h2>SmartHome</h2>
+        <div class="subtitle">Welcome back! Please sign in to continue</div>
+      </div>
+
+      <div class="error" id="errorMsg"></div>
+
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" id="username" placeholder="Username" />
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="password" placeholder="Password" />
+      </div>
+
+      <button class="login-btn" onclick="login()" id="loginBtn">
+        <span id="btnText">Sign In</span>
+        <div class="loading" id="loading"></div>
+      </button>
+
+      <div class="footer-text">SmartHome Dashboard v2.0</div>
+    </div>
+
+    <script>
+      function sanitizeInput(str) {
+        return str.replace(/[&<>"'/]/g, function (char) {
+          const chars = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;",
+            "/": "&#x2F;",
+          };
+          return chars[char] || char;
+        });
+      }
+
+      function showError(message) {
+        const errorElement = document.getElementById("errorMsg");
+        errorElement.innerText = message;
+        errorElement.classList.add("show");
+        setTimeout(() => {
+          errorElement.classList.remove("show");
+        }, 3000);
+      }
+
+      function login() {
+          const username = sanitizeInput(
+              document.getElementById("username").value
+          );
+          const password = sanitizeInput(
+              document.getElementById("password").value
+          );
+          const loginBtn = document.getElementById("loginBtn");
+          const btnText = document.getElementById("btnText");
+          const loading = document.getElementById("loading");
+
+          // Tampilkan loading
+          btnText.style.display = "none";
+          loading.style.display = "block";
+          loginBtn.disabled = true;
+
+          // Simulasikan penundaan loading
+          setTimeout(() => {
+              if (username === "admin" && password === "admin123") {
+                  // *** TAMBAHKAN BARIS INI UNTUK MENGATUR STATUS LOGIN ***
+                  sessionStorage.setItem("loggedIn", "true"); 
+                  // Catatan: Dalam aplikasi nyata, hindari menggunakan sessionStorage untuk autentikasi
+                  // Ini hanya untuk tujuan demonstrasi
+                  window.location.href = "dashboard.html";
+              } else {
+                  showError("Username atau password salah!");
+
+                  // Reset tombol
+                  btnText.style.display = "inline";
+                  loading.style.display = "none";
+                  loginBtn.disabled = false;
+              }
+          }, 1000);
+      }
+
+      // Handle Enter key press
+      document.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          login();
+        }
+      });
+
+      // Check if already logged in
+      // Note: This check is removed as sessionStorage is not available
+      // In a real application, you would check authentication status differently
+    </script>
+  </body>
+</html>
