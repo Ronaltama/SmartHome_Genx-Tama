@@ -56,7 +56,6 @@ Lihat bagaimana sistem kami bekerja dalam skenario nyata melalui video demo beri
 
 Untuk penjelasan yang lebih mendalam mengenai arsitektur, skema rangkaian, dan detail teknis lainnya, silakan akses dokumen laporan kami:
 
-**https://drive.google.com/drive/folders/1Qc-_Rl24qDguoRrySqFm5lpViQpaLEE7
-**
+**https://drive.google.com/drive/folders/1Qc-_Rl24qDguoRrySqFm5lpViQpaLEE7**
 
 
