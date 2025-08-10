@@ -1,8 +1,8 @@
 // main.js
 
 const options = {
-  username: "ronal",
-  password: "ronaltama12345",
+  username: "",
+  password: "",
 };
 
 // Pastikan menggunakan wss:// untuk koneksi browser
